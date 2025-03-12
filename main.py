@@ -15,7 +15,7 @@ def ask():
     client = ai.Client(
         {
             "openai": {"api_key": open_ai_key},
-            "huggingface": {"api_key": huggingface_key},
+            "huggingface": {"api_key": hf_token},
             "ollama": {"base_url": "http://localhost:11434"}
         }
     )
@@ -63,6 +63,7 @@ def train():
 
     tf.keras.mixed_precision.set_global_policy('mixed_float16')
 
+    # Had to login to HuggingFace and accept license
     base_model = keras_nlp.models.GemmaCausalLM.from_preset(
         "hf://google/gemma-2-2b-it",
         token=hf_token
@@ -100,13 +101,12 @@ def train():
     print("Model saved to gemma-2-2b-arrested.keras")
 
 
-
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "ask":
         ask()
     elif len(sys.argv) > 1 and sys.argv[1] == "train":
         train()
     else:
-        print("Usage: python main.py [ask|train]")
+        print("Usage: uv run main.py [ask|train]")
 
 

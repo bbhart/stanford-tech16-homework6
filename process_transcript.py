@@ -1,3 +1,6 @@
+# process_transcript.py
+# Convert a transcript file to a JSONL file for fine-tuning.
+
 import json
 import argparse
 

@@ -1,4 +1,4 @@
-# aisuite and ollama
+# aisuite and fine-tuning
 
 # Using base models
 
