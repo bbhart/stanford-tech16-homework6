@@ -3,4 +3,5 @@ python-dotenv
 docstring-parser
 tensorflow
 keras_nlp
-
+safetensors
+tensorflow-text
