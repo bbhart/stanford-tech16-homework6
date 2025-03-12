@@ -13,15 +13,15 @@ def run():
     client = ai.Client(
         {
             "openai": {"api_key": open_ai_key},
-            "huggingface": {"api_key": huggingface_key}
+            "huggingface": {"api_key": huggingface_key},
+            "ollama": {"base_url": "http://localhost:11434"}
         }
     )
 
-
-    #models = ["openai:gpt-4o", "huggingface:mistralai/Mistral-7B-Instruct-v0.3"]
-    models = ["openai:gpt-3.5-turbo-0125", "huggingface:TinyLlama/TinyLlama-1.1B-Chat-v1.0"]
-
-    
+    models = [
+        "ollama:mistral",
+        "ollama:gemma:2b"
+    ]
 
     messages = [
         {"role": "system", "content": "Respond in English using analogies from Arrested Development TV show. Include specific quotes from the show."},
