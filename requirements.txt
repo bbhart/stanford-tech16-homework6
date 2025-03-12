@@ -1,4 +1,6 @@
 aisuite[all]
 python-dotenv
 docstring-parser
+tensorflow
+keras_nlp
 

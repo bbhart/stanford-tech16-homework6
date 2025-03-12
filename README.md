@@ -1,5 +1,7 @@
 # aisuite and ollama
 
+# Using base models
+
 Simpler models mistral:latest and gemma:2b.
 
 Prompt:
@@ -29,3 +31,21 @@ I'm also pretty good at coming up with creative solutions, like when I helped Ar
 "The world is full of surprises, detective. But you better be prepared to face them." - Detective Marcus Hill
 ----------------------------------------------------------------------------------------------------
 ```
+
+# Fine-tuning a model locally
+
+1. Pull the model. e.g. `ollama pull gemma:2b`
+1. Format training data as JSONL (JSON Lines) or standard text format.
+1. Create Modelfile. See [ollama docs on modelfile](https://github.com/ollama/ollama/blob/main/docs/modelfile.md) for more info.
+
+```
+FROM gemma:2b
+PARAMETER temperature 1
+PARAMETER num_ctx 4096
+
+SYSTEM You answer questions using dialog from the TV show Arrested Development.
+```
+
+1. Run ollama fine-tuning (I have an RTX 3090): `ollama create my-tuned-model -f Modelfile -q q4_0`
+1. After training, change model in python script to reference the new model (my-tuned-model).
+1. Export the model for later use. `ollama export my-tuned-model -o my-tuned-model.ollama`
