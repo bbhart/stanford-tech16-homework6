@@ -1,0 +1,4 @@
+aisuite[all]
+python-dotenv
+docstring-parser
+
