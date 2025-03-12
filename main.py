@@ -17,13 +17,14 @@ def run():
         }
     )
 
-    # For the very life of me I can't figure out how to get these huggingface models to work.
-    #models = ["huggingface:gpt2", "huggingface:gpt2-medium"]
 
-    models = ["openai:gpt-4o", "huggingface:mistralai/Mistral-7B-Instruct-v0.3"]
+    #models = ["openai:gpt-4o", "huggingface:mistralai/Mistral-7B-Instruct-v0.3"]
+    models = ["openai:gpt-3.5-turbo-0125", "huggingface:TinyLlama/TinyLlama-1.1B-Chat-v1.0"]
+
+    
 
     messages = [
-        {"role": "system", "content": "Respond in English using analogies from Arrested Development TV show."},
+        {"role": "system", "content": "Respond in English using analogies from Arrested Development TV show. Include specific quotes from the show."},
         {"role": "user", "content": "Which model are you and what are you good at?"},
     ]
 
